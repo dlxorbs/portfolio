@@ -1,0 +1,104 @@
+.cardContainer {
+  position: relative;
+  z-index: 99;
+
+  width: 280px;
+  height: 360px;
+  background-color: #ffffff;
+
+  border-radius: 8px;
+  overflow: hidden;
+  transition: 0.3s;
+
+
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.5);
+}
+
+.cardImage {
+  position: absolute;
+  z-index: 99;
+  background-size: cover;
+  background-position: center;
+  transition: 1s;
+  transition-delay: 1s;
+  width: 100%;
+  height: 100%;
+}
+
+.cardBack {
+  position: absolute;
+  z-index: 1;
+  background-color: #333333;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.cardHover {
+  position: absolute;
+  z-index: 999;
+  background-color: #00000000;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.3s;
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.cardContainer:hover .cardHover {
+  opacity: 1;
+  transition: 0.1s;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 999;
+
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.3s;
+
+  display: flex;
+  align-items: center;
+}
+
+.cardContainer:hover .overlay {
+  opacity: 1;
+  transition: 0.1s;
+}
+
+.maincontainer {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  padding-top: 24px;
+  position: relative;
+}
+
+.cardtitle {
+  font-size: 16px;
+  color: #333333;
+  width: 80%;
+  word-break: keep-all;
+  line-height: 160%;
+  margin: 24px auto;
+}
+
+.content {
+  text-decoration: "none";
+}
+
+.clicked {
+  transform: rotateY(180deg) !important;
+  transition: 1s !important;
+}
+
+.imgclick {
+  z-index: 999;
+  transition: 1s !important;
+  transition-delay: 0.2s;
+}
