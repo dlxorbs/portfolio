@@ -9,7 +9,7 @@
 }
 
 .header {
-  width: var(--web1440);
+  width: var(--web1200);
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -33,7 +33,7 @@
   color: #ffffff;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   .header {
     width: var(--web900);
     height: 60px;

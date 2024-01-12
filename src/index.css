@@ -7,7 +7,7 @@
 }
 
 :root {
-  --web1440: 1440px;
+  --web1200: 1200px;
   --web900: 900px;
 }
 
@@ -22,4 +22,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@media screen and (max-width: 1440px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 800px) {
+
 }

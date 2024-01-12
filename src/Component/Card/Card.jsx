@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./card.css";
+import reactimg from "../../Img/react.svg";
+import jsimg from "../../Img/JS.svg";
+import firebaseimg from "../../Img/firebase.svg";
 
 export default function Card(props) {
   const [rotationX, setRotationX] = useState(0);

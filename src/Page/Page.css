@@ -1,9 +1,9 @@
 .pageContainer {
-  width: var(--web1440);
+  width: var(--web1200);
   margin: 0px auto;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   .pageContainer {
     width: var(--web900);
     margin: 0px auto;
