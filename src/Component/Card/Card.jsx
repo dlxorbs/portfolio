@@ -3,6 +3,7 @@ import "./card.css";
 import reactimg from "../../Img/react.svg";
 import jsimg from "../../Img/JS.svg";
 import firebaseimg from "../../Img/firebase.svg";
+import Skills from "../Skills/Skills";
 
 export default function Card(props) {
   const [rotationX, setRotationX] = useState(0);
@@ -38,7 +39,11 @@ export default function Card(props) {
         cardMoving(e);
       }}
       style={{
-        transform: `perspective(1920px) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`,
+        transform: `${
+          isclicked
+            ? ""
+            : `perspective(1920px) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`
+        }`,
       }}
       onMouseLeave={() => {
         setRotationX(0);
@@ -49,7 +54,11 @@ export default function Card(props) {
       <div
         className={"overlay"}
         style={{
-          background: `linear-gradient(${angledegree}deg, rgba(255, 251, 238, 0.30) 20.94%, rgba(255, 255, 255, 0.00) 80.56%)`,
+          background: `${
+            isclicked
+              ? ""
+              : `linear-gradient(${angledegree}deg, rgba(255, 251, 238, 0.30) 20.94%, rgba(255, 255, 255, 0.00) 80.56%)`
+          }`,
         }}
       ></div>
       <div className={`cardHover `}>
@@ -59,10 +68,13 @@ export default function Card(props) {
       <div
         className={`cardImage `}
         style={{
-          backgroundImage: `url(${props.thumbnail})`,
+          backgroundImage: `url(${isclicked ? "none" : props.thumbnail} )`,
+          backgroundColor: `url(${isclicked ? "#333333" : `#ffffff`} )`,
         }}
       ></div>
-      <div className={`cardBack  ${isclicked ? "imgclick" : ""}`}></div>
+      <div className={`cardBack  ${isclicked ? "imgclick" : ""}`}>
+        <Skills></Skills>
+      </div>
     </div>
   );
 }

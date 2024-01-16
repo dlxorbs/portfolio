@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Page.css";
 import CardList from "../Component/Card/CardList";
+import DesignerPage from "../Component/Introduction/Introduction";
 import { db, storage } from "../firebase";
 
 export default function Mainpage() {
