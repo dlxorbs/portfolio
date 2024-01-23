@@ -3,6 +3,9 @@
   margin: 0px auto;
 }
 
+.pageWrapper {
+}
+
 @media (max-width: 1440px) {
   .pageContainer {
     width: var(--web900);

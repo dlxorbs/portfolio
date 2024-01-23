@@ -1,7 +1,23 @@
 .skill {
-  width: 64px;
-  height: 64px;
-  background-color: #ffffff;
+  width: 56px;
+  height: 56px;
+  background-color: #dddddd;
   border-radius: 4px;
 
+  padding: 8px;
+  transform: rotateY(180deg);
+}
+
+.skill > img {
+  width: 100%;
+  height: 100%;
+}
+
+.skilllist {
+  width: calc(80%);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  align-items: center;
 }

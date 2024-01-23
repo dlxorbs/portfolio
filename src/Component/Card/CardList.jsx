@@ -10,10 +10,8 @@ export default function CardList(props) {
         key={item.id}
         title={item.title}
         content={item.content}
-        onClick={function () {
-          console.log(item.id + "이동");
-          //   nav("/post/" + item.id);
-        }}
+        skilldata={item.skills}
+        link={item.link}
       ></Card>
     );
   });

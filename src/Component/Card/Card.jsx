@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./card.css";
-import reactimg from "../../Img/react.svg";
-import jsimg from "../../Img/JS.svg";
-import firebaseimg from "../../Img/firebase.svg";
-import Skills from "../Skills/Skills";
+import Skilllist from "../Skills/SkillList";
+import github from "../../Img/github.svg";
 
 export default function Card(props) {
   const [rotationX, setRotationX] = useState(0);
@@ -28,6 +26,12 @@ export default function Card(props) {
     // 각도에서 90도 추가하여 완전 반대 위치로 잡을 수 있도록 제작
     setAngledegree((angle * 180) / Math.PI + 90);
   }
+
+  const link1open = () => {
+    const url = props.link;
+    window.open(url, "_blank");
+    console.log(url);
+  };
 
   return (
     <div
@@ -68,12 +72,19 @@ export default function Card(props) {
       <div
         className={`cardImage `}
         style={{
-          backgroundImage: `url(${isclicked ? "none" : props.thumbnail} )`,
+          backgroundImage: `url(${props.thumbnail} )`,
           backgroundColor: `url(${isclicked ? "#333333" : `#ffffff`} )`,
         }}
       ></div>
       <div className={`cardBack  ${isclicked ? "imgclick" : ""}`}>
-        <Skills></Skills>
+        <div className="skilltitle">SKILL</div>
+
+        <Skilllist data={props.skilldata}></Skilllist>
+
+        <div className="github" onClick={link1open}>
+          {" "}
+          <img src={github} alt="" />
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Page.css";
 import CardList from "../Component/Card/CardList";
+import Title from "../Component/Title/Title";
 import DesignerPage from "../Component/Introduction/Introduction";
 import { db, storage } from "../firebase";
 
@@ -15,13 +16,15 @@ export default function Mainpage() {
           Datas.push(doc.data());
         });
         setData(Datas);
-        console.log(Datas);
       });
   }, []);
 
   return (
-    <div className="pageContainer">
-      <CardList data={data}></CardList>
+    <div className="pageWrapper">
+      <Title></Title>
+      <div className="pageContainer">
+        <CardList data={data}></CardList>
+      </div>
     </div>
   );
 }

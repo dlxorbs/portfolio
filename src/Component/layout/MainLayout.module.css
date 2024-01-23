@@ -1,0 +1,33 @@
+.mainlayout {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1200px) {
+  .mainlayout {
+    max-width: 1200px;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .mainlayout {
+    max-width: 1024px;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .mainlayout {
+    max-width: 800px;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mainlayout {
+    max-width: 600px;
+    overflow: hidden;
+  }
+}
