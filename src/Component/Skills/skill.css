@@ -1,7 +1,7 @@
 .skill {
   width: 56px;
   height: 56px;
-  background-color: #dddddd;
+  background-color: #ffffff;
   border-radius: 4px;
 
   padding: 8px;
@@ -14,7 +14,7 @@
 }
 
 .skilllist {
-  width: calc(80%);
+  width: calc(100% - 24px);
   height: 80px;
   display: flex;
   justify-content: center;

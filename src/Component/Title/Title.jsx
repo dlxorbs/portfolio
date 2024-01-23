@@ -13,7 +13,6 @@ export default function Title(props) {
       } else {
         setpositionX(scrollY);
       }
-      console.log("스크롤 위치:", scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -26,8 +25,10 @@ export default function Title(props) {
   return (
     <div className="titleContainer">
       <h1
+        id="toptitle"
         style={{
-          transform: `translate(calc(100vw + ${-positionX * 4}px), 50vh)`,
+          opacity: `${positionX / 300}`,
+          // transform: `translate(calc(100 + ${positionX}%), 50vh)`,
         }}
       >
         Frontend Developer
@@ -35,10 +36,11 @@ export default function Title(props) {
       <h1
         id="bottitle"
         style={{
-          transform: `translate(calc(-100% + ${positionX * 4}px), 50vh)`,
+          opacity: `${positionX / 300}`,
+          // transform: `translate(calc(-100% + ${positionX}%), 50vh)`,
         }}
       >
-        TAE GYUN
+        TAE GYUN LEE
       </h1>
     </div>
   );

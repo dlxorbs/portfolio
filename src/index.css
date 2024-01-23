@@ -9,6 +9,9 @@
 :root {
   --web1200: 1200px;
   --web900: 900px;
+  --h1: 64px;
+  --h2: 40px;
+  --h3: 32px;
 }
 
 body {
@@ -26,7 +29,13 @@ code {
 }
 
 h1 {
-  font-size: 64px;
+  font-size: var(--h1);
+  margin: 0;
+  width: fit-content;
+  transition: 0.3s;
+}
+h2 {
+  font-size: var(--h2);
   margin: 0;
   width: fit-content;
   transition: 0.3s;

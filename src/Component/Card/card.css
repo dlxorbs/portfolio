@@ -61,14 +61,6 @@
   transition: 0.1s;
 }
 
-.maincontainer {
-  width: 100%;
-  display: flex;
-  gap: 24px;
-  padding-top: 24px;
-  position: relative;
-}
-
 .cardtitle {
   font-size: 16px;
   color: #333333;
@@ -137,4 +129,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* 카드리스트 */
+
+.maincontainer {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  padding-top: 24px;
+  margin-bottom: 48px;
+  position: relative;
 }

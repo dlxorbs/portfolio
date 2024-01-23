@@ -1,0 +1,9 @@
+.sectionContainer {
+  width: 100%;
+  min-height: 250px;
+  transition: 500ms;
+}
+
+.sectionContainer > h2 {
+  transition: 500ms;
+}

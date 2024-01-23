@@ -1,14 +1,15 @@
 .pageContainer {
   width: var(--web1200);
-  margin: 0px auto;
+  margin: 48px auto 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
-.pageWrapper {
-}
 
 @media (max-width: 1440px) {
   .pageContainer {
     width: var(--web900);
-    margin: 0px auto;
+    margin: 48px auto 0px;
   }
 }
