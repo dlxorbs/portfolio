@@ -6,6 +6,9 @@
   gap: 48px;
 }
 
+.pageWrapper {
+  position: relative;
+}
 
 @media (max-width: 1440px) {
   .pageContainer {

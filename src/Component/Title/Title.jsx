@@ -24,24 +24,28 @@ export default function Title(props) {
 
   return (
     <div className="titleContainer">
-      <h1
-        id="toptitle"
-        style={{
-          opacity: `${positionX / 300}`,
-          // transform: `translate(calc(100 + ${positionX}%), 50vh)`,
-        }}
-      >
-        Frontend Developer
-      </h1>
-      <h1
-        id="bottitle"
-        style={{
-          opacity: `${positionX / 300}`,
-          // transform: `translate(calc(-100% + ${positionX}%), 50vh)`,
-        }}
-      >
-        TAE GYUN LEE
-      </h1>
+      <div className="titleWrapper">
+        <div className="nameWrapper">
+          <h1
+            id="toptitle"
+            style={{
+              opacity: `${positionX / 300}`,
+              left: ` calc( ${positionX / 10}%)`,
+            }}
+          >
+            Frontend Developer
+          </h1>
+          <h1
+            id="bottitle"
+            style={{
+              opacity: `${positionX / 300}`,
+              right: ` calc(0% + ${positionX / 10.5}%)`,
+            }}
+          >
+            TAE GYUN LEE
+          </h1>
+        </div>
+      </div>
     </div>
   );
 }
