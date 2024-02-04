@@ -16,11 +16,12 @@ export default function Section(props) {
 
       // 화면에 보이면 스타일 변경
       if (isSectionVisible && !isVisible) {
-        // section.style.transform = "translateY(-24px)";
+        section.style.transform = "translateY(-24px)";
         section.style.opacity = 1;
         setIsVisible(true);
       }
       if (!isSectionVisible && isVisible) {
+        section.style.transform = "translateY(0px)";
         section.style.opacity = 0;
         setIsVisible(false);
       }
@@ -29,7 +30,6 @@ export default function Section(props) {
     // 스크롤 이벤트 리스너 추가
     window.addEventListener("scroll", handleScroll);
 
-    // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

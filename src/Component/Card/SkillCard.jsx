@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./card.css";
-import Skilllist from "../Skills/SkillList";
 import github from "../../Img/github.svg";
+import reactimg from "../../Img/react.svg";
+import jsimg from "../../Img/JS.svg";
+import firebaseimg from "../../Img/firebase.svg";
 
-export default function Card(props) {
+export default function Skillcard(props) {
   const [rotationX, setRotationX] = useState(0);
   const [rotationY, setRotationY] = useState(0);
   const [angledegree, setAngledegree] = useState(180);
@@ -27,18 +29,18 @@ export default function Card(props) {
     setAngledegree((angle * 180) / Math.PI + 90);
   }
 
-  const link1open = () => {
-    const url = props.link;
-    window.open(url, "_blank");
-    console.log(url);
-  };
+  const img =
+    props.title === "React.js"
+      ? reactimg
+      : props.title === "JS"
+      ? jsimg
+      : props.title === "HTML/CSS"
+      ? firebaseimg
+      : null;
 
   return (
     <div
-      className={`cardContainer ${isclicked ? "clicked" : ""}`}
-      onClick={(e) => {
-        setClicked(!isclicked);
-      }}
+      className={`cardContainer skillCard`}
       onMouseMove={(e) => {
         cardMoving(e);
       }}
@@ -61,31 +63,21 @@ export default function Card(props) {
           background: `${
             isclicked
               ? ""
-              : `linear-gradient(${angledegree}deg, rgba(255, 251, 238, 0.30) 20%, rgba(255, 255, 255, 0.00) 80.56%)`
+              : `linear-gradient(${angledegree}deg, rgba(255, 251, 238, 0.30) 0.94%, rgba(255, 255, 255, 0.00) 80.56%)`
           }`,
         }}
       ></div>
-      <div className={`cardHover `}>
+      <div className="SkillcardIntro">
+        <div
+          className={`SkillcardImage`}
+          style={{
+            backgroundImage: `url(${img} )`,
+          }}
+        ></div>
+
         <span className="cardtitle">{props.title || ""}</span>
-        <span className="content">{props.content || ""}</span>
       </div>
-      <div
-        className={`cardImage `}
-        style={{
-          backgroundImage: `url(${props.thumbnail} )`,
-          backgroundColor: `url(${isclicked ? "#333333" : `#ffffff`} )`,
-        }}
-      ></div>
-      <div className={`cardBack  ${isclicked ? "imgclick" : ""}`}>
-        <div className="skilltitle">SKILL</div>
-
-        <Skilllist data={props.skilldata}></Skilllist>
-
-        <div className="github" onClick={link1open}>
-          {" "}
-          <img src={github} alt="" />
-        </div>
-      </div>
+      <span className="content">{props.content || ""}</span>
     </div>
   );
 }

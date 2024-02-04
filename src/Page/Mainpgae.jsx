@@ -6,6 +6,7 @@ import DesignerPage from "../Component/Introduction/Introduction";
 import { db, storage } from "../firebase";
 import $ from "jquery";
 import Section from "../Component/Section/Section";
+import SkillCardList from "../Component/Card/SkillCardList";
 
 export default function Mainpage() {
   // db에서 불러오기
@@ -21,6 +22,19 @@ export default function Mainpage() {
         setData(Datas);
       });
   }, []);
+  // db에서 불러오기
+  const [skilldata, setskillData] = useState([]);
+  useEffect(function () {
+    let Datas = [];
+    db.collection("skilllist")
+      .get()
+      .then(function (qs) {
+        qs.forEach((doc) => {
+          Datas.push(doc.data());
+        });
+        setskillData(Datas);
+      });
+  }, []);
 
   return (
     <div className="pageWrapper">
@@ -29,7 +43,7 @@ export default function Mainpage() {
         <Section
           className={"skills"}
           title={"Skills"}
-          children={<CardList data={data}></CardList>}
+          children={<SkillCardList data={skilldata}></SkillCardList>}
         ></Section>
         <Section
           className={"works"}

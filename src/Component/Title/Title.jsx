@@ -3,15 +3,21 @@ import "./title.css";
 
 export default function Title(props) {
   const [positionX, setpositionX] = useState(0);
+  const [opacity, setOpacity] = useState(0);
   useEffect(() => {
     const handleScroll = (e) => {
       // 현재 스크롤 위치 확인
       const scrollY = window.scrollY;
-
+      console.log(scrollY);
       if (scrollY > 300) {
         setpositionX(300);
+        setOpacity(300);
+        if (scrollY > 1400) {
+          setOpacity(0);
+        }
       } else {
         setpositionX(scrollY);
+        setOpacity(scrollY);
       }
     };
 
@@ -29,7 +35,7 @@ export default function Title(props) {
           <h1
             id="toptitle"
             style={{
-              opacity: `${positionX / 300}`,
+              opacity: `${opacity / 300}`,
               left: ` calc( ${positionX / 10}%)`,
             }}
           >
@@ -38,8 +44,8 @@ export default function Title(props) {
           <h1
             id="bottitle"
             style={{
-              opacity: `${positionX / 300}`,
-              right: ` calc(0% + ${positionX / 10.5}%)`,
+              opacity: `${opacity / 300}`,
+              right: ` calc(0% + ${positionX / 9}%)`,
             }}
           >
             TAE GYUN LEE

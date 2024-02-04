@@ -28,7 +28,7 @@
 .cardHover {
   position: absolute;
   z-index: 999;
-  background-color: #00000000;
+  /* background-color: var(--g0); */
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -63,7 +63,7 @@
 
 .cardtitle {
   font-size: 16px;
-  color: #333333;
+  color: var(--g1);
   width: 80%;
   word-break: keep-all;
   line-height: 160%;
@@ -114,12 +114,13 @@
   position: absolute;
   top: 0;
 }
+
 /* 카드 뒷면 */
 
 .cardBack {
   position: absolute;
   z-index: 1;
-  background-color: #333333;
+  background-color: var(--g1);
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -131,6 +132,45 @@
   align-items: center;
 }
 
+/* 스킬카드 */
+
+.skillCard {
+  min-width: 360px !important;
+  max-width: 400px !important;
+  max-height: 240px !important;
+  background-color: var(--g2) !important;
+  color: #ffffff !important;
+
+  flex: 1 1 calc(33% - 24px);
+}
+
+.SkillcardIntro {
+  display: flex;
+  flex-direction: column;
+}
+
+.SkillcardIntro > .cardtitle {
+  color: #ffffff;
+  width: fit-content !important;
+  height: 100%;
+  margin: 0 0 0 24px;
+  font-size: 20px;
+}
+
+.SkillcardImage {
+  z-index: 99;
+  background-size: cover;
+  background-position: center;
+  transition: background-color 1s;
+  transition-delay: 0.5s;
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  top: 24px;
+  left: 24px;
+  margin: 24px;
+}
+
 /* 카드리스트 */
 
 .maincontainer {
@@ -140,4 +180,5 @@
   padding-top: 24px;
   margin-bottom: 48px;
   position: relative;
+  flex-wrap: wrap;
 }
