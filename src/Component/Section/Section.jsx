@@ -1,30 +1,54 @@
 import React, { useEffect, useState } from "react";
+import "./section.css";
 
 export default function Section(props) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (e) => {
       // 섹션이 화면에 보이는지 확인
+
       const section = document.querySelector(
         `.sectionContainer.${props.className}`
       );
       const rect = section.getBoundingClientRect();
-      const isSectionVisible =
+
+      const isSectionTopVisible =
         rect.top + window.innerHeight / 2 <= window.innerHeight &&
         rect.bottom >= 0;
 
+      const isSectionInWindow =
+        rect.top + window.innerHeight / 2 >= 0 &&
+        rect.top + window.innerHeight / 2 <= window.innerHeight &&
+        rect.bottom >= 0;
+
+      const isSectionOutWindow =
+        (rect.top < 0 &&
+          rect.bottom + window.innerHeight / 2 < window.innerHeight) ||
+        (rect.bottom > window.innerHeight &&
+          rect.top + window.innerHeight / 2 > window.innerHeight);
+
+      // const isSectionBottomVisible =
+      //   rect.bottom < window.innerHeight / 2 && rect.top < 0;
+
+      // console.log(isSectionBottomVisible);
+      console.log(isSectionOutWindow);
       // 화면에 보이면 스타일 변경
-      if (isSectionVisible && !isVisible) {
+      if (isSectionInWindow && !isVisible) {
         section.style.transform = "translateY(-24px)";
         section.style.opacity = 1;
         setIsVisible(true);
-      }
-      if (!isSectionVisible && isVisible) {
-        section.style.transform = "translateY(0px)";
-        section.style.opacity = 0;
+      } else if (isSectionOutWindow && isVisible) {
         setIsVisible(false);
+        section.style.opacity = 0;
+        section.style.transform = "translateY(-24px)";
       }
+
+      // if (isSectionBottomVisible && isVisible) {
+      //   setIsVisible(false);
+      //   section.style.opacity = 0;
+      //   section.style.transform = "translateY(-24px)";
+      // }
     };
 
     // 스크롤 이벤트 리스너 추가
@@ -39,7 +63,6 @@ export default function Section(props) {
     <div
       className={`sectionContainer ${props.className}`}
       style={{
-        opacity: isVisible ? 1 : 0,
         transition: "opacity 0.5s, transform 0.5s",
       }}
     >

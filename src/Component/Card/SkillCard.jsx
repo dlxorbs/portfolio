@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./card.css";
 import github from "../../Img/github.svg";
-import reactimg from "../../Img/react.svg";
+import ReactJS from "../../Img/ReactJs.svg";
 import jsimg from "../../Img/JS.svg";
+import HTML5 from "../../Img/HTML5.svg";
+import CSS3 from "../../Img/CSS3.svg";
 import firebaseimg from "../../Img/firebase.svg";
 
 export default function Skillcard(props) {
@@ -29,13 +31,18 @@ export default function Skillcard(props) {
     setAngledegree((angle * 180) / Math.PI + 90);
   }
 
+  const list = props.content.map((item) => {
+    return <span className="skillabout">{item}</span>;
+  });
   const img =
-    props.title === "React.js"
-      ? reactimg
+    props.title === "ReactJs"
+      ? ReactJS
       : props.title === "JS"
       ? jsimg
-      : props.title === "HTML/CSS"
-      ? firebaseimg
+      : props.title === "HTML5"
+      ? HTML5
+      : props.title === "CSS3"
+      ? CSS3
       : null;
 
   return (
@@ -71,13 +78,20 @@ export default function Skillcard(props) {
         <div
           className={`SkillcardImage`}
           style={{
-            backgroundImage: `url(${img} )`,
+            backgroundColor: "#212121",
           }}
-        ></div>
+        >
+          <div
+            className={`Skillcardcenter`}
+            style={{
+              backgroundImage: `url(${img})`,
+            }}
+          ></div>
+        </div>
 
         <span className="cardtitle">{props.title || ""}</span>
       </div>
-      <span className="content">{props.content || ""}</span>
+      <div className="cardabout">{list}</div>
     </div>
   );
 }

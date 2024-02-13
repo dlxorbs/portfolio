@@ -1,6 +1,6 @@
 .pageContainer {
   width: var(--web1200);
-  margin: 48px auto 0px;
+  margin: 48px auto 200px;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -13,6 +13,6 @@
 @media (max-width: 1440px) {
   .pageContainer {
     width: var(--web900);
-    margin: 48px auto 0px;
+    margin: 48px auto 200px;
   }
 }

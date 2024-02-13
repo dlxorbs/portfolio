@@ -1,7 +1,7 @@
 .skill {
   width: 56px;
   height: 56px;
-  background-color: #ffffff;
+  background-color: var(--g9);
   border-radius: 4px;
 
   padding: 8px;

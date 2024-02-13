@@ -8,7 +8,7 @@ export default function Title(props) {
     const handleScroll = (e) => {
       // 현재 스크롤 위치 확인
       const scrollY = window.scrollY;
-      console.log(scrollY);
+      // console.log(scrollY);
       if (scrollY > 300) {
         setpositionX(300);
         setOpacity(300);
@@ -51,6 +51,8 @@ export default function Title(props) {
             TAE GYUN LEE
           </h1>
         </div>
+
+        <div className="historyWrapper">+ + +</div>
       </div>
     </div>
   );

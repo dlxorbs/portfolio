@@ -1,6 +1,6 @@
 import React from "react";
 import "./skill.css";
-import reactimg from "../../Img/react.svg";
+import reactimg from "../../Img/ReactJs.svg";
 import jsimg from "../../Img/JS.svg";
 import firebaseimg from "../../Img/firebase.svg";
 
