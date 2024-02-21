@@ -66,7 +66,12 @@ export default function Card(props) {
         }}
       ></div>
       <div className={`cardHover `}>
-        <span className="cardtitle">{props.title || ""}</span>
+        <span
+          className="cardtitle"
+          style={{ color: props.color === "white" ? "#ffffff" : "#000000" }}
+        >
+          {props.title || ""}
+        </span>
         <span className="content">{props.content || ""}</span>
       </div>
       <div
