@@ -22,23 +22,32 @@ export default function Section(props) {
         rect.top + window.innerHeight / 2 <= window.innerHeight &&
         rect.bottom >= 0;
 
-      const isSectionOutWindow =
-        (rect.top < 0 &&
-          rect.bottom + window.innerHeight / 2 < window.innerHeight) ||
-        (rect.bottom > window.innerHeight &&
-          rect.top + window.innerHeight / 2 > window.innerHeight);
+      const isSectionOutWindowUpside =
+        rect.top < 0 &&
+        rect.bottom + window.innerHeight / 2 < window.innerHeight;
+      const isSectionOutWindowDownside =
+        rect.bottom > window.innerHeight &&
+        rect.top + window.innerHeight / 2 > window.innerHeight;
 
       // const isSectionBottomVisible =
       //   rect.bottom < window.innerHeight / 2 && rect.top < 0;
 
       // console.log(isSectionBottomVisible);
-      console.log(isSectionOutWindow);
       // 화면에 보이면 스타일 변경
-      if (isSectionInWindow && !isVisible) {
-        section.style.transform = "translateY(-24px)";
+      if (
+        isSectionInWindow &&
+        !isVisible &&
+        !(isSectionOutWindowUpside || isSectionOutWindowDownside)
+      ) {
+        section.style.transform = "translateY(0px)";
         section.style.opacity = 1;
         setIsVisible(true);
-      } else if (isSectionOutWindow && isVisible) {
+      } else if (isSectionOutWindowDownside && isVisible) {
+        setIsVisible(false);
+        section.style.opacity = 0;
+        section.style.transform = "translateY(24px)";
+        
+      } else if (isSectionOutWindowUpside && isVisible) {
         setIsVisible(false);
         section.style.opacity = 0;
         section.style.transform = "translateY(-24px)";

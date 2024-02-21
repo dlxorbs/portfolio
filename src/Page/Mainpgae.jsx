@@ -22,7 +22,8 @@ export default function Mainpage() {
         setData(Datas);
       });
   }, []);
-  // db에서 불러오기
+
+  // db에서 불러오기 skill
   const [skilldata, setskillData] = useState([]);
   useEffect(function () {
     let Datas = [];
@@ -36,9 +37,23 @@ export default function Mainpage() {
       });
   }, []);
 
+  // db에서 불러오기 history
+  const [historydata, sethistoryData] = useState([]);
+  useEffect(function () {
+    let Datas = [];
+    db.collection("history")
+      .get()
+      .then(function (qs) {
+        qs.forEach((doc) => {
+          Datas.push(doc.data());
+        });
+        sethistoryData(Datas);
+      });
+  }, []);
+
   return (
     <div className="pageWrapper">
-      <Title></Title>
+      <Title data={historydata}></Title>
       <div className="pageContainer">
         <Section
           className={"skills"}

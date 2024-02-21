@@ -7,7 +7,7 @@ export default function CardList(props) {
     return (
       <Card
         thumbnail={item.img}
-        key={item.id}
+        key={item.title}
         title={item.title}
         content={item.content}
         skilldata={item.skills}

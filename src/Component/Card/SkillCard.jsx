@@ -32,7 +32,11 @@ export default function Skillcard(props) {
   }
 
   const list = props.content.map((item) => {
-    return <span className="skillabout">{item}</span>;
+    return (
+      <span className="skillabout" key={item}>
+        {item}
+      </span>
+    );
   });
   const img =
     props.title === "ReactJs"
@@ -43,6 +47,8 @@ export default function Skillcard(props) {
       ? HTML5
       : props.title === "CSS3"
       ? CSS3
+      : props.title === "firebase"
+      ? firebaseimg
       : null;
 
   return (

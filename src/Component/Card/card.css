@@ -4,7 +4,6 @@
 
   width: 280px;
   height: 360px;
-  background-color: #ffffff;
 
   border-radius: 8px;
   overflow: hidden;
@@ -90,7 +89,7 @@
   width: 32px;
   height: 32px;
 
-  padding: 8px;
+  padding: 16px;
 
   position: absolute;
   bottom: 0;
@@ -194,6 +193,7 @@
   font-size: 14px;
   font-weight: 300;
   display: flex;
+  word-break: keep-all;
 }
 
 /* 카드리스트 */
