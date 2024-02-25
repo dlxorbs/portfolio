@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Mainpage from "./Page/Mainpgae";
 import MainLayout from "./Component/layout/MainLayout";
+import DetailPage from "./Page/DetailPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
@@ -12,6 +13,7 @@ root.render(
     <Routes>
       <Route element={<MainLayout />}>
         <Route index element={<Mainpage />}></Route>
+        <Route path="/:id" element={<DetailPage />}></Route>
       </Route>
     </Routes>
   </BrowserRouter>

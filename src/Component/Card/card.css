@@ -105,6 +105,46 @@
   height: 100%;
 }
 
+.link {
+  min-width: 32px;
+  height: 32px;
+
+  padding: 16px;
+
+  position: absolute;
+  z-index: 99;
+
+  cursor: pointer;
+
+  transform: rotateY(180deg);
+
+  border-radius: 4px;
+  display: flex;
+}
+
+.github {
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.visitsite {
+  width: fit-content;
+  bottom: 0;
+  right: 0%;
+  z-index: 99;
+  color: var(--g0);
+  align-items: center;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+  transition: 0.5s;
+}
+
+.visitsite:hover {
+  color: var(--p2) !important;
+}
+
 .skilltitle {
   font-size: 1.4rem;
   transform: rotateY(180deg);

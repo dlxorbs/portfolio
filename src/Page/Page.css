@@ -1,20 +1,26 @@
 .pageContainer {
-  width: var(--web1200);
+  width: 100%;
   margin: 48px auto 200px;
   display: flex;
   flex-direction: column;
   gap: 48px;
+  align-items: center;
+}
+
+.detail {
+  padding: 60px 0px !important;
+  margin: 0 auto !important;
 }
 
 .pageWrapper {
   position: relative;
-  width: var(--web1200);
+  width: 100%;
   margin: auto;
 }
 
+.Page_SecondWrapper {
+  width: 100%;
+}
+
 @media (max-width: 1440px) {
-  .pageContainer {
-    width: var(--web900);
-    margin: 48px auto 200px;
-  }
 }

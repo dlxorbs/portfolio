@@ -5,6 +5,7 @@ import Title from "../Component/Title/Title";
 import DesignerPage from "../Component/Introduction/Introduction";
 import { db, storage } from "../firebase";
 import $ from "jquery";
+import Scroll from "../Component/Scroll/Scroll";
 import Section from "../Component/Section/Section";
 import SkillCardList from "../Component/Card/SkillCardList";
 
@@ -20,6 +21,7 @@ export default function Mainpage() {
           Datas.push(doc.data());
         });
         setData(Datas);
+        console.log(Datas);
       });
   }, []);
 
@@ -53,6 +55,7 @@ export default function Mainpage() {
 
   return (
     <div className="pageWrapper">
+      <Scroll />
       <Title data={historydata}></Title>
       <div className="pageContainer">
         <Section

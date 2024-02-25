@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./section.css";
+import "./Section.css";
 
 export default function Section(props) {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,7 +46,6 @@ export default function Section(props) {
         setIsVisible(false);
         section.style.opacity = 0;
         section.style.transform = "translateY(24px)";
-        
       } else if (isSectionOutWindowUpside && isVisible) {
         setIsVisible(false);
         section.style.opacity = 0;

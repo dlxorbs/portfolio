@@ -1,30 +1,24 @@
 .mainlayout {
   position: relative;
   height: 100%;
-
-  margin-bottom: 48px;
+  max-width: var(--web1200);
+  margin: 0 auto 48px;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1440px) {
   .mainlayout {
-    max-width: 1200px;
+    max-width: var(--web1000);
   }
 }
 
 @media screen and (max-width: 1024px) {
   .mainlayout {
-    max-width: 1024px;
+    max-width: var(--web800);
   }
 }
 
 @media screen and (max-width: 800px) {
   .mainlayout {
-    max-width: 800px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .mainlayout {
-    max-width: 600px;
+    max-width: var(--webmobiled);
   }
 }

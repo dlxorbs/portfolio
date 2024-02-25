@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./card.css";
 import Skilllist from "../Skills/SkillList";
 import github from "../../Img/github.svg";
@@ -8,6 +9,15 @@ export default function Card(props) {
   const [rotationY, setRotationY] = useState(0);
   const [angledegree, setAngledegree] = useState(180);
   const [isclicked, setClicked] = useState(false);
+
+  const nav = useNavigate();
+  // 스크롤 초기화 함수
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
+
   function cardMoving(e) {
     const rect = e.target.getBoundingClientRect();
     const offsetX = e.clientX - rect.left;
@@ -86,9 +96,18 @@ export default function Card(props) {
 
         <Skilllist data={props.skilldata}></Skilllist>
 
-        <div className="github" onClick={link1open}>
+        <div className="link github" onClick={link1open}>
           {" "}
           <img src={github} alt="" />
+        </div>
+        <div
+          className="link visitsite"
+          onClick={() => {
+            nav("/" + props.id);
+            scrollToTop();
+          }}
+        >
+          show more
         </div>
       </div>
     </div>

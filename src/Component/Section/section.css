@@ -2,8 +2,156 @@
   width: 100%;
   min-height: 250px;
   transition: 500ms;
+  opacity: 0;
 }
 
 .sectionContainer > h2 {
   transition: 500ms;
+}
+
+/*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
+.LeftContianer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.RightContianer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+}
+
+.CenterContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.textWrapper {
+  width: 550px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.image {
+  width: auto;
+}
+
+.CenterContainer > .textWrapper {
+  height: 180px;
+}
+.center {
+  width: 100% !important;
+}
+
+.function {
+  width: 373px;
+}
+
+.functionImg {
+  width: 752px;
+  height: 500px;
+}
+
+.smimg {
+  width: 100vw;
+  height: 33vw;
+  position: absolute;
+}
+.black {
+  width: 100%;
+  height: 100%;
+  background-color: #00000070;
+  position: absolute;
+  z-index: 1;
+}
+.imagecon {
+  position: relative;
+  width: 100vw;
+  height: 33vw;
+}
+
+textarea {
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  white-space: normal;
+  resize: none;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  border: none;
+  color: var(--g0);
+  background-color: transparent;
+  font-size: 18px;
+  padding: 0;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.maintext {
+  color: var(--g0);
+  z-index: 3;
+}
+
+.maintext > span {
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.maintextcon {
+  width: var(--web1200);
+  height: auto;
+  margin: 0 auto;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  bottom: 56px;
+  color: var(--G1);
+  z-index: 3;
+}
+
+.member {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.major {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 30px;
+}
+
+.studentcontainer {
+  display: flex;
+}
+
+iframe {
+  width: 100%;
+  height: 720px;
+}
+
+.mainImage {
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }

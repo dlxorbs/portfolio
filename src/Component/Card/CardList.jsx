@@ -4,8 +4,10 @@ import Card from "./Card";
 
 export default function CardList(props) {
   const list = props.data.map(function (item) {
+    console.log(item.id);
     return (
       <Card
+        id={item.id}
         thumbnail={item.img}
         key={item.title}
         title={item.title}
