@@ -47,13 +47,76 @@
 
 .image {
   width: auto;
+  max-width: 520px;
 }
 
 .CenterContainer > .textWrapper {
-  height: 180px;
+  height: fit-content;
 }
 .center {
   width: 100% !important;
+}
+
+/* 이미지 여러장 보여주기 */
+.imgContainer {
+  width: auto;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imgWrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.imgcon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 calc(50% - 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imgcon > img {
+  width: calc(100%);
+}
+
+.over {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--g0);
+  flex-direction: column;
+  transition: 0.5s;
+}
+
+.over > span {
+  opacity: 0;
+}
+
+.LeftContianer:hover .over,
+.imgcon:hover .over {
+  width: 100%;
+  height: 100%;
+  background-color: #33333380;
+  transition: 0.4s;
+}
+
+.LeftContianer:hover .over > span,
+.imgcon:hover .over > span {
+  opacity: 1;
+  transition: 0.5s;
 }
 
 .function {
@@ -73,29 +136,35 @@
 .black {
   width: 100%;
   height: 100%;
-  background-color: #00000070;
+  /* background-color: #00000070; */
   position: absolute;
   z-index: 1;
 }
-.imagecon {
+/* .imagecon {
   position: relative;
   width: 100vw;
   height: 33vw;
+} */
+.imagecon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
-
-textarea {
+.CenterContainer > p,
+.textWrapper > p {
   width: 100%;
   height: auto;
-  min-height: 150px;
   white-space: normal;
   resize: none;
   overflow: hidden;
+  word-break: break-all;
   overflow-wrap: anywhere;
   border: none;
   color: var(--g0);
   background-color: transparent;
   font-size: 18px;
   padding: 0;
+  line-height: 160%;
 }
 
 textarea:focus {
@@ -121,37 +190,20 @@ textarea:focus {
   justify-content: space-between;
   align-items: end;
   bottom: 56px;
-  color: var(--G1);
+  color: var(--g1);
   z-index: 3;
-}
-
-.member {
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.major {
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-right: 30px;
-}
-
-.studentcontainer {
-  display: flex;
 }
 
 iframe {
   width: 100%;
   height: 720px;
 }
-
 .mainImage {
-  width: 100vw;
   position: relative;
-  display: flex;
-  justify-content: center;
+  width: 100vw;
+  height: 440px; /* 패럴렉스 효과를 주고자 하는 요소의 높이에 맞게 조정하세요 */
+  overflow: hidden;
+  background-image: var(--img);
+  background-size: cover;
+  background-repeat: no-repeat;
 }

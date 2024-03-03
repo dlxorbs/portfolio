@@ -2,8 +2,13 @@ import React from "react";
 import "./Section.css";
 export default function Right(props) {
   return (
-    <div className="RightContianer">
-      <img className={`image ${props.img}`} src={props.src} alt="" />
+    <div
+      className="RightContianer"
+      // style={{ display: `${props.text === "" ? "none" : "flex"}` }}
+    >
+      <div className="imgContainer">
+        <img className={`image ${props.img}`} src={props.src} alt="" />
+      </div>
       <div className={`textWrapper ${props.type}`}>
         <h4
           style={{
@@ -12,12 +17,7 @@ export default function Right(props) {
         >
           {props.head || "dlxorbs"}
         </h4>
-        <textarea
-          readyOnly
-          className="text"
-          value={props.text}
-          onChange={props.onChange}
-        ></textarea>
+        <p>{props.text}</p>
       </div>
     </div>
   );

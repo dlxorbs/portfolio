@@ -1,0 +1,87 @@
+.ModalBackground {
+  display: flex;
+  width: 100vw;
+  height: calc(100% - 96px);
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 9999;
+  padding: 48px 0px;
+  justify-content: center;
+}
+.Modalfull {
+  width: calc(100%);
+  min-height: calc(100% - 96px);
+  height: 100%;
+  padding: 48px 0px;
+  top: 0;
+  position: fixed;
+  background-color: #00000050;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+}
+
+.Modal_Wrapper {
+  width: 1260px;
+  display: flex;
+  position: var(--position);
+  padding: 48px 0px;
+
+  border-radius: 12px;
+  z-index: 99;
+  align-items: center;
+}
+
+.contentWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--G8);
+  border-radius: 12px;
+  overflow-y: auto;
+  box-shadow: #00000050 0px 4px 4px;
+}
+.contentWrapper > img {
+  width: 100%;
+  background-color: var(--g1);
+}
+
+.contenthead {
+  width: calc(100% - 40px);
+  height: 60px;
+  gap: 20px;
+  background-color: var(--G8);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+.floatBtncon {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.floattext {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+}
+
+.contenthead > .img {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background-color: bisque;
+  background-image: var(--back);
+}
+
+.textcon {
+  display: flex;
+  flex-direction: column;
+  color: var(--G1);
+}

@@ -2,8 +2,11 @@ import React from "react";
 import "./Section.css";
 export default function Left(props) {
   return (
-    <div className="LeftContianer">
-      <div className={`textWrapper ${props.type || ""}`}>
+    <div
+      className="LeftContianer"
+      // style={{ display: `${props.img === "" ? "none" : "flex"}` }}
+    >
+      <div className={`textWrapper ${props.type}`}>
         <h4
           style={{
             "--width": props.width + "px",
@@ -11,10 +14,26 @@ export default function Left(props) {
         >
           {props.head || "dlxorbs"}
         </h4>
-        <textarea readOnly className="text" value={props.text} onChange={props.onChange}></textarea>
+        <p>{props.text}</p>
       </div>
 
-      <img className={`image ${props.img || ""}`} src={props.src} alt="" />
+      <div className="imgContainer">
+        {props.head === "Architecture" ? (
+          <div className="over" onClick={props.onClick}>
+            <span>Show {props.head} Image</span>
+          </div>
+        ) : (
+          ""
+        )}
+        <img
+          className={`image ${props.img}`}
+          src={props.src}
+          onClick={
+            props.head === "Architecture" ? props.onClick : console.log("a")
+          }
+          alt=""
+        />
+      </div>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { useState } from "react";
 import CloseIcon from "../../Img/close.png";
 import MenuIcon from "../../Img/hamburger.png";
 import { useEffect } from "react";
+import Scroll from "../Scroll/Scroll";
 
 function Nav(props) {
   const location = useLocation(); // 현재 위치 확인
@@ -29,12 +30,37 @@ function Nav(props) {
 
 function Header(props) {
   const nav = useNavigate();
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const location = useLocation();
 
-  // 스크롤 초기화 함수
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  console.log(location);
+  // Nav 클릭 시 스크롤 위치로 이동하는 함수
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
+      behavior: "smooth", // 부드러운 스크롤 적용
+    });
+  };
+
+  const scrollToWork = () => {
+    const scrolledTopLength = window.pageYOffset;
+    const work = document.querySelector(".works");
+    const workTop = scrolledTopLength + work.getBoundingClientRect().top;
+    console.log(workTop);
+    window.scrollTo({
+      top: workTop,
+      behavior: "smooth", // 부드러운 스크롤 적용
+    });
+  };
+
+  const scrollToskill = () => {
+    const scrolledTopLength = window.pageYOffset;
+    const skill = document.querySelector(".skills");
+    const skillTop = scrolledTopLength + skill.getBoundingClientRect().top;
+
+    window.scrollTo({
+      top: skillTop - 200,
+      behavior: "smooth", // 부드러운 스크롤 적용
     });
   };
 
@@ -49,20 +75,28 @@ function Header(props) {
       >
         <Nav
           title="ABOUT"
-          to="/About" // Nav에 경로(to) 추가
           onClick={() => {
-            nav("/About");
-            scrollToTop(); // Nav 클릭 시 스크롤 초기화
-            window.location.reload();
+            if (location.pathname === "/") {
+              scrollToskill();
+            } else {
+              nav("/");
+              setTimeout(() => {
+                scrollToskill();
+              }, 0);
+            }
           }}
         />
         <Nav
           title="PROJECT"
-          to="/project" // Nav에 경로(to) 추가
           onClick={() => {
-            nav("/project");
-            scrollToTop(); // Nav 클릭 시 스크롤 초기화
-            window.location.reload();
+            if (location.pathname === "/") {
+              scrollToWork();
+            } else {
+              nav("/");
+              setTimeout(() => {
+                scrollToWork();
+              }, 0);
+            }
           }}
         />
       </div>
