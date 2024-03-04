@@ -6,7 +6,9 @@ export default function MainImg(props) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setOffset(window.pageYOffset);
+      if (window.innerWidth >= 800) {
+        setOffset(window.pageYOffset);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);

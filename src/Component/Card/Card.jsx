@@ -19,22 +19,27 @@ export default function Card(props) {
   };
 
   function cardMoving(e) {
-    const rect = e.target.getBoundingClientRect();
-    const offsetX = e.clientX - rect.left;
-    const offsetY = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+    if (window.innerWidth >= 800) {
+      const rect = e.target.getBoundingClientRect();
+      const offsetX = e.clientX - rect.left;
+      const offsetY = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
 
-    const deltaX = Math.round(((offsetX - centerX) / centerX) * -20);
-    const deltaY = Math.round(((offsetY - centerY) / centerY) * 20);
+      const deltaX = Math.round(((offsetX - centerX) / centerX) * -20);
+      const deltaY = Math.round(((offsetY - centerY) / centerY) * 20);
 
-    setRotationX(deltaY);
-    setRotationY(deltaX);
+      setRotationX(deltaY);
+      setRotationY(deltaX);
 
-    // 마우스 위치와 중앙점 계산하고 atan2이용해서 반댓값 계산
-    const angle = Math.atan2(offsetY - centerY, offsetX - centerX);
-    // 각도에서 90도 추가하여 완전 반대 위치로 잡을 수 있도록 제작
-    setAngledegree((angle * 180) / Math.PI + 90);
+      // 마우스 위치와 중앙점 계산하고 atan2이용해서 반댓값 계산
+      const angle = Math.atan2(offsetY - centerY, offsetX - centerX);
+      // 각도에서 90도 추가하여 완전 반대 위치로 잡을 수 있도록 제작
+      setAngledegree((angle * 180) / Math.PI + 90);
+    } else {
+      setRotationX(0);
+      setRotationY(0);
+    }
   }
 
   const link1open = () => {

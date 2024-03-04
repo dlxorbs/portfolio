@@ -18,6 +18,11 @@ export default function Center(props) {
   const [pageNumber, setPageNumber] = useState(1);
   const [file, setFile] = useState(null);
 
+  const link1open = () => {
+    const url = props.link;
+    window.open(url, "_blank");
+  };
+
   const list = props.data.map(function (item, index) {
     const handleCardClick = (item, index) => {
       props.openModal(item, index);
@@ -38,6 +43,13 @@ export default function Center(props) {
     <div className="CenterContainer">
       <div className="textWrapper center">
         <h4>{props.head || "Function"}</h4>
+
+        <span
+          onClick={link1open}
+          style={{ display: `${props.weblink === "" ? "none" : ""}` }}
+        >
+          {props.link === "" ? "" : "Visit Site"}
+        </span>
       </div>
       <div className="imgWrapper">{list}</div>
     </div>

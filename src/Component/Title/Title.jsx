@@ -10,13 +10,13 @@ function History(props) {
           <div
             className="box"
             style={{
-              "--boxwidth": `calc(100% - ${props.width}px)`,
+              "--boxwidth": `calc(100% - ${props.width}px + 12px)`,
               opacity: props.historyop,
             }}
           ></div>
 
           <span className="year">{props.year}</span>
-          <span>| {props.detail}</span>
+          <span className="details"> {props.detail}</span>
         </div>
       }
     </>
@@ -30,15 +30,9 @@ export default function Title(props) {
   const [width, setWidth] = useState(0);
   const [historyop, setHistoryop] = useState(1);
   const [historyWrapperOpacity, setHistoryWrapperOpacity] = useState(0);
-  const [historyStates, setHistoryStates] = useState([]);
 
   useEffect(() => {
-    // 데이터 배열의 길이만큼 빈 상태를 추가
-    setHistoryStates(props.data.length);
-  }, [props.data]);
-  // console.log(historyStates);
-  useEffect(() => {
-    const handleScroll = (e) => {
+    const handleScroll = () => {
       const section = document.querySelector(`.titleContainer`);
       const historysection = document.querySelector(`.historyWrapper`);
 
@@ -52,6 +46,10 @@ export default function Title(props) {
       const isTitletopOutWindow = rect.top < -200;
       const isTitletextStop = rect.top < -500;
       const isTitletextRight = rect.top < -1000;
+
+      const isTitletextStopmobile = rect.top < -500;
+      const isTitletextRightmobile = rect.top < -800;
+
       const isTitlebottomHalfWindow = rect.bottom < window.innerHeight / 2;
 
       if (isTitletopOutWindow) {
@@ -62,12 +60,22 @@ export default function Title(props) {
           setPositionX(500);
           setOpacity(500);
 
-          if (isTitletextRight) {
-            setTitleRight(isTitletextRight);
-            setHistoryWrapperOpacity(1);
+          if (window.innerWidth <= 800) {
+            if (isTitletextRightmobile) {
+              setOpacity(0);
+              setHistoryWrapperOpacity(1);
+            } else {
+              setTitleRight(false);
+              setHistoryWrapperOpacity(0);
+            }
           } else {
-            setTitleRight(false);
-            setHistoryWrapperOpacity(0);
+            if (isTitletextRight) {
+              setTitleRight(isTitletextRight);
+              setHistoryWrapperOpacity(1);
+            } else {
+              setTitleRight(false);
+              setHistoryWrapperOpacity(0);
+            }
           }
         }
 
@@ -89,40 +97,41 @@ export default function Title(props) {
   }, []);
 
   useEffect(() => {
-    const historylistElements = document.querySelectorAll(".historylist");
-    historylistElements.forEach((item) => {
-      const historylisrect = item.getBoundingClientRect();
-      // console.log(historylisrect.width);
-    });
+    if (window.innerWidth < 1024) {
+      setWidth(0);
+      setHistoryop(0);
+    } else {
+      const historylistElements = document.querySelectorAll(".historylist");
 
-    const historysection = document.querySelector(`.historyWrapper`);
-    const historyrect = historysection.getBoundingClientRect();
-    const isHistorymidHalfWindow =
-      historyrect.top < window.innerHeight / 2 &&
-      historyrect.bottom > window.innerHeight / 2;
+      const historysection = document.querySelector(`.historyWrapper`);
+      const historyrect = historysection.getBoundingClientRect();
+      const isHistorymidHalfWindow =
+        historyrect.top < window.innerHeight / 2 &&
+        historyrect.bottom > window.innerHeight / 2;
 
-    const timerId = setTimeout(() => {
-      const intervalId = setInterval(() => {
-        if (isHistorymidHalfWindow) {
-          setWidth((prevWidth) => {
-            const newWidth = prevWidth + 12;
-            if (newWidth <= 800) {
-              setHistoryop(1); // 너비가 증가할 때 opacity를 1로 설정
-              return newWidth;
-            } else {
-              clearInterval(intervalId);
-              setHistoryop(0); // 너비가 최대치에 도달하면 opacity를 0으로 설정
-              return prevWidth;
-            }
-          });
-        } else {
-        }
-      }, 100);
+      const timerId = setTimeout(() => {
+        const intervalId = setInterval(() => {
+          if (isHistorymidHalfWindow) {
+            setWidth((prevWidth) => {
+              const newWidth = prevWidth + 12;
+              if (newWidth <= 600) {
+                setHistoryop(1); // 너비가 증가할 때 opacity를 1로 설정
+                return newWidth;
+              } else {
+                clearInterval(intervalId);
+                setHistoryop(0); // 너비가 최대치에 도달하면 opacity를 0으로 설정
+                return prevWidth;
+              }
+            });
+          } else {
+          }
+        }, 100);
 
-      return () => clearInterval(intervalId);
-    });
+        return () => clearInterval(intervalId);
+      });
 
-    return () => clearTimeout(timerId);
+      return () => clearTimeout(timerId);
+    }
   }, [titleRight]);
 
   const historylist = props.data.map((item, index) => {

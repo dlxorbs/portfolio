@@ -19,6 +19,7 @@
 
 @media screen and (max-width: 800px) {
   .mainlayout {
-    max-width: var(--webmobiled);
+    width: var(--webmobiled);
+    margin: 0 auto 48px;
   }
 }

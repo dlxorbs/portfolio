@@ -1,5 +1,6 @@
 #section5 {
   position: absolute;
+  width: 100%;
   top: 50vh;
   transform: translateY(-50%);
   transition: 0.5s;
@@ -33,7 +34,7 @@
 
 /* container */
 .container {
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 

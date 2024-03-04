@@ -230,7 +230,7 @@
   display: block;
   width: calc(100% - 48px);
   margin: 0px 24px;
-  font-size: 14px;
+  font-size: var(--skillabout);
   font-weight: 300;
   display: flex;
   word-break: keep-all;
@@ -246,4 +246,50 @@
   margin-bottom: 48px;
   position: relative;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1440px) {
+  .cardContainer {
+    flex: 1 1 25%;
+    max-width: 325px;
+  }
+  .skillCard {
+    max-width: calc(50% - 12px) !important;
+    max-height: 240px !important;
+    background-color: var(--g2) !important;
+    color: var(--g0) !important;
+    flex: 1 1 33%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cardContainer {
+    flex: 1 1 33%;
+    max-width: 388px;
+  }
+
+  .skillCard {
+    max-width: calc(50% - 12px) !important;
+    min-width: calc(50% - 12px) !important;
+    max-height: 240px !important;
+    background-color: var(--g2) !important;
+    color: var(--g0) !important;
+    flex: 1 1 25%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .cardContainer {
+    flex: 1 1 50%;
+    max-width: 388px;
+  }
+
+  .skillCard {
+    max-width: none !important;
+    min-width: none !important;
+    max-height: 240px !important;
+    background-color: var(--g2) !important;
+    color: var(--g0) !important;
+    flex: 1 1 calc(50%);
+  }
 }

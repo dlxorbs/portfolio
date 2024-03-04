@@ -13,9 +13,8 @@ export default function Section(props) {
       );
       const rect = section.getBoundingClientRect();
 
-      const isSectionTopVisible =
-        rect.top + window.innerHeight / 2 <= window.innerHeight &&
-        rect.bottom >= 0;
+      const isSectionbottomVisible = rect.bottom <= window.innerHeight / 2;
+      const isSectionTopVisible = rect.top <= window.innerHeight / 2;
 
       const isSectionInWindow =
         rect.top + window.innerHeight / 2 >= 0 &&
@@ -34,22 +33,41 @@ export default function Section(props) {
 
       // console.log(isSectionBottomVisible);
       // 화면에 보이면 스타일 변경
-      if (
-        isSectionInWindow &&
-        !isVisible &&
-        !(isSectionOutWindowUpside || isSectionOutWindowDownside)
-      ) {
-        section.style.transform = "translateY(0px)";
-        section.style.opacity = 1;
-        setIsVisible(true);
-      } else if (isSectionOutWindowDownside && isVisible) {
-        setIsVisible(false);
-        section.style.opacity = 0;
-        section.style.transform = "translateY(24px)";
-      } else if (isSectionOutWindowUpside && isVisible) {
-        setIsVisible(false);
-        section.style.opacity = 0;
-        section.style.transform = "translateY(-24px)";
+
+      if (window.innerWidth <= 800) {
+        if (isSectionTopVisible) {
+          section.style.transform = "translateY(0px)";
+          section.style.opacity = 1;
+          setIsVisible(true);
+          if (isSectionbottomVisible) {
+            // 밑에가 1/3보다 작을때 사라지게 먼저
+            setIsVisible(false);
+            section.style.opacity = 0;
+            section.style.transform = "translateY(24px)";
+          }
+        } else if (!isSectionTopVisible) {
+          setIsVisible(false);
+          section.style.opacity = 0;
+          section.style.transform = "translateY(24px)";
+        }
+      } else {
+        if (
+          isSectionInWindow &&
+          !isVisible &&
+          !(isSectionOutWindowUpside || isSectionOutWindowDownside)
+        ) {
+          section.style.transform = "translateY(0px)";
+          section.style.opacity = 1;
+          setIsVisible(true);
+        } else if (isSectionOutWindowDownside && isVisible) {
+          setIsVisible(false);
+          section.style.opacity = 0;
+          section.style.transform = "translateY(24px)";
+        } else if (isSectionOutWindowUpside && isVisible) {
+          setIsVisible(false);
+          section.style.opacity = 0;
+          section.style.transform = "translateY(-24px)";
+        }
       }
 
       // if (isSectionBottomVisible && isVisible) {

@@ -36,8 +36,14 @@
   --h2: 40px;
   --h3: 32px;
   --h4: 28px;
+  --skillabout: 14px;
+
+  --topmin: 409px;
+  --botmin: 412px;
+
   --g0: #ffffff;
   --g1: #121212;
+  --g1opacity: linear-gradient(180deg, #000 -31%, #516df6 820.56%);
   --g9: #212121;
   --g2: #333333;
   --g3: #565656;
@@ -96,12 +102,31 @@ h4 {
     --h1: 48px;
     --h2: 36px;
     --h3: 28px;
-    --h4: 20px;
+    --h4: 24px;
+
+    --botmin: 330px;
+    --skillabout: 16px;
   }
 }
 
 @media screen and (max-width: 1024px) {
+  :root {
+    --h1: 40px;
+    --h2: 32px;
+    --h3: 24px;
+    --h4: 20px;
+    --topmin: 350px;
+    --botmin: 276px;
+    --skillabout: 14px;
+  }
 }
 
 @media screen and (max-width: 800px) {
+  :root {
+    --h1: 36px;
+    --h2: 28px;
+    --h3: 20px;
+    --h4: 16px;
+    --skillabout: 12px;
+  }
 }

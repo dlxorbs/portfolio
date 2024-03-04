@@ -57,6 +57,7 @@ export default function DetailPage() {
   const [backtext, setBacktext] = useState("");
   const [restext, setRestext] = useState("");
   const [goaltext, setGoaltext] = useState("");
+  const [link, setLink] = useState("");
   // const [func01text, setFunc01text] = useState("");
   // const [func02text, setFunc02text] = useState("");
   // const [func03text, setFunc03text] = useState("");
@@ -90,7 +91,7 @@ export default function DetailPage() {
 
           setData(Datas?.data);
           setVideo(Datas.video || "");
-
+          setLink(Datas.weblink || "");
           setIsLoading(true);
         }
         setDummy(Datas);
@@ -123,8 +124,9 @@ export default function DetailPage() {
         <Center
           openModal={openModal}
           width={550}
-          head={"Image"}
+          head={"Details"}
           data={functionthumb}
+          link={link}
         />
 
         {selectedCard && isLoading && (

@@ -48,7 +48,7 @@ function Header(props) {
     const workTop = scrolledTopLength + work.getBoundingClientRect().top;
     console.log(workTop);
     window.scrollTo({
-      top: workTop,
+      top: workTop - 200,
       behavior: "smooth", // 부드러운 스크롤 적용
     });
   };

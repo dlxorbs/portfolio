@@ -55,6 +55,16 @@
 }
 .center {
   width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.center > span {
+  color: var(--g0);
+  width: fit-content;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* 이미지 여러장 보여주기 */
@@ -63,6 +73,9 @@
   position: relative;
   border-radius: 8px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .imgWrapper {
@@ -165,6 +178,7 @@
   font-size: 18px;
   padding: 0;
   line-height: 160%;
+  margin: 0;
 }
 
 textarea:focus {
@@ -206,4 +220,116 @@ iframe {
   background-image: var(--img);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 1440px) {
+  /*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
+  .LeftContianer {
+    gap: 40px;
+  }
+
+  .RightContianer {
+    gap: 40px;
+  }
+
+  .CenterContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .CenterContainer > p,
+  .textWrapper > p {
+    color: var(--g0);
+    margin: 0;
+    font-size: 14px;
+  }
+  .textWrapper {
+    width: 400px;
+  }
+}
+
+@media (max-width: 1024px) {
+  /*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
+  .LeftContianer {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .RightContianer {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .CenterContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .CenterContainer > p,
+  .textWrapper > p {
+    color: var(--g0);
+    margin: 0;
+    font-size: 14px;
+  }
+  .textWrapper {
+    width: 100%;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 800px) {
+  /*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
+  .LeftContianer {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .RightContianer {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .CenterContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .textWrapper {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .CenterContainer > p,
+  .textWrapper > p {
+    color: var(--g0);
+    margin: 0;
+    font-size: 12px;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .center > span {
+    font-size: 10px;
+  }
+
+  .mainImage {
+    position: relative;
+    width: 100vw;
+    height: 250px; /* 패럴렉스 효과를 주고자 하는 요소의 높이에 맞게 조정하세요 */
+    overflow: hidden;
+    background-image: var(--img);
+  }
 }

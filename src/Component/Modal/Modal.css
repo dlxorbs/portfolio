@@ -85,3 +85,30 @@
   flex-direction: column;
   color: var(--G1);
 }
+@media (max-width: 800px) {
+  .Modal_Wrapper {
+    width: 100%;
+    height: auto;
+    padding: 0 0 48px;
+    margin: 0px 0px 24px;
+  }
+  .closebtn {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+    right: 0;
+    top: 0;
+    color: var(--g0);
+    width: 24px;
+    height: 24px;
+    margin: 12px;
+    border-radius: 9999px;
+    background-color: var(--p1);
+  }
+  .closebtn:hover {
+    background-color: var(--p2);
+  }
+}
