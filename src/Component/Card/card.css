@@ -218,6 +218,8 @@
 .Skillcardcenter {
   width: 48px;
   height: 48px;
+  background-position: center;
+  background-size: cover;
 }
 .cardabout {
   display: flex;

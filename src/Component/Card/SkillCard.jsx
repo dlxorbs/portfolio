@@ -6,7 +6,8 @@ import jsimg from "../../Img/JS.svg";
 import HTML5 from "../../Img/HTML5.svg";
 import CSS3 from "../../Img/CSS3.svg";
 import firebaseimg from "../../Img/firebase.svg";
-
+import figmaimg from "../../Img/Figma.svg";
+import protopieimg from "../../Img/protopie-2.svg";
 export default function Skillcard(props) {
   const [rotationX, setRotationX] = useState(0);
   const [rotationY, setRotationY] = useState(0);
@@ -49,6 +50,10 @@ export default function Skillcard(props) {
       ? CSS3
       : props.title === "firebase"
       ? firebaseimg
+      : props.title === "Figma"
+      ? figmaimg
+      : props.title === "Protopie"
+      ? protopieimg
       : null;
 
   return (
