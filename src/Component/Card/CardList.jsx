@@ -15,6 +15,8 @@ export default function CardList(props) {
         skilldata={item.skills}
         link={item.link}
         color={item.color || ""}
+        type={item.type}
+        participate={item.participate}
       ></Card>
     );
   });

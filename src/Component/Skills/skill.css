@@ -1,8 +1,10 @@
 .skill {
-  width: 56px;
+  width: calc(33% - 24px);
   height: 56px;
+  max-width: calc(33% - 24px);
   background-color: var(--g9);
   border-radius: 4px;
+  flex: 1 1 calc(33% - 24px);
 
   padding: 8px;
   transform: rotateY(180deg);
@@ -14,10 +16,15 @@
 }
 
 .skilllist {
-  width: calc(100% - 24px);
-  height: 80px;
+  width: calc(100%);
+  height: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
   align-items: center;
+}
+.leftskill {
+  margin-left: auto;
+  flex: 1 1 calc(33% - 24px);
 }

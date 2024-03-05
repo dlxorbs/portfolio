@@ -83,7 +83,12 @@ export default function Card(props) {
       <div className={`cardHover `}>
         <span
           className="cardtitle"
-          style={{ color: props.color === "white" ? "#ffffff" : "#000000" }}
+          style={{
+            opacity: isclicked ? "0" : "1",
+            transition: isclicked ? "0s" : "0.5s",
+            transitionDelay: isclicked ? "0s" : "0.3s",
+            color: props.color === "white" ? "#ffffff" : "#000000",
+          }}
         >
           {props.title || ""}
         </span>
@@ -94,13 +99,22 @@ export default function Card(props) {
         style={{
           backgroundImage: `url(${props.thumbnail} )`,
           backgroundColor: `url(${isclicked ? "#333333" : `#ffffff`} )`,
+          opacity: isclicked ? "0" : "1",
+          transition: isclicked ? "0s" : "0.5s",
         }}
       ></div>
       <div className={`cardBack  ${isclicked ? "imgclick" : ""}`}>
-        <div className="skilltitle">SKILL</div>
+        <div className="infoWrapper">
+          <div className="skilltitle">SKILL</div>
 
-        <Skilllist data={props.skilldata}></Skilllist>
-
+          <Skilllist data={props.skilldata}></Skilllist>
+          <div className="infoContainer">
+            <div className="projecttype">Work type</div>
+            <span className="type">{props.type}</span>
+            <div className="projecttype">Participate</div>
+            <span className="type"> {props.participate} </span>
+          </div>
+        </div>
         <div className="link github" onClick={link1open}>
           {" "}
           <img src={github} alt="" />

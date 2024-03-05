@@ -15,7 +15,7 @@ export default function Skills(props) {
       : null;
 
   return (
-    <div className="skill">
+    <div className={`skill ${props.className}`}>
       <img src={img} alt="" />
     </div>
   );
