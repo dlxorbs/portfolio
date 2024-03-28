@@ -8,6 +8,7 @@ import $ from "jquery";
 import Scroll from "../Component/Scroll/Scroll";
 import Section from "../Component/Section/Section";
 import SkillCardList from "../Component/Card/SkillCardList";
+import DownloadButton from "../Component/Button/Download";
 
 export default function Mainpage() {
   // db에서 불러오기
@@ -68,6 +69,8 @@ export default function Mainpage() {
           title={"Works"}
           children={<CardList data={data}></CardList>}
         ></Section>
+
+        <DownloadButton />
       </div>
     </div>
   );

@@ -96,6 +96,7 @@
 
 .year {
   min-width: 100px;
+  max-width: 100px;
 }
 
 .box {
@@ -168,6 +169,7 @@
     position: sticky;
     display: flex;
     width: 100%;
+
     height: calc(100vh - 85px);
     top: 85px;
     gap: 24px;
@@ -190,7 +192,7 @@
     position: absolute;
     height: 50%;
 
-    top: 50%;
+    top: 30%;
     color: var(--g0);
     font-weight: 200;
     transform: translateY(-50%);

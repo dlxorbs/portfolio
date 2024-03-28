@@ -162,7 +162,7 @@ export default function Title(props) {
                 : "translate(50%, -50%)",
             }}
           >
-            Frontend Developer
+            Web Designer
           </h1>
           <h1
             id="bottitle"
