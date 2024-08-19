@@ -60,7 +60,8 @@
 .nav {
   text-decoration: none;
   cursor: pointer;
-
+  display: flex;
+  align-items: center;
   color: #ffffff;
   transition: 0.4s;
 }

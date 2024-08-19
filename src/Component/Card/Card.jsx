@@ -110,9 +110,9 @@ export default function Card(props) {
           <Skilllist data={props.skilldata}></Skilllist>
           <div className="infoContainer">
             <div className="projecttype">Work type</div>
-            <span className="type">{props.type}</span>
+            <span className={`type ${props.span}`}>{props.type}</span>
             <div className="projecttype">Participate</div>
-            <span className="type"> {props.participate} </span>
+            <span className={`type ${props.span}`}> {props.participate} </span>
           </div>
         </div>
         <div className="link github" onClick={link1open}>

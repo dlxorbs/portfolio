@@ -9,6 +9,7 @@ export default function SkillCardList(props) {
         key={item.id}
         title={item.title}
         content={item.about}
+        span={props.span}
       ></Skillcard>
     );
   });

@@ -34,7 +34,7 @@ export default function Skillcard(props) {
 
   const list = props.content.map((item) => {
     return (
-      <span className="skillabout" key={item}>
+      <span className={`skillabout ${props.span || "unblur"}`} key={item}>
         {item}
       </span>
     );

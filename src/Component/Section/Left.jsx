@@ -14,7 +14,7 @@ export default function Left(props) {
         >
           {props.head || "dlxorbs"}
         </h4>
-        <p>{props.text}</p>
+        <p className={props.toggle}>{props.text}</p>
       </div>
 
       <div className="imgContainer">

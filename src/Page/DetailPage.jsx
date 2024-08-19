@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import "./Page.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { db } from "../firebase.js";
@@ -9,11 +9,14 @@ import Center from "../Component/Section/Center";
 import MainImg from "../Component/Section/MainImage.jsx";
 import Modal from "../Component/Modal/ModalPage.jsx";
 import Loading from "../Component/Load/Loading.jsx";
+import { AppContext } from "../Context/AppContext";
 
 export default function DetailPage() {
   const nav = useNavigate();
   const postId = useParams().id;
   const textarea = useRef();
+
+  const { headerToggleData } = useContext(AppContext);
 
   const handleResizeHeight = () => {
     textarea.current.style.height = "auto"; //height 초기화
@@ -64,39 +67,73 @@ export default function DetailPage() {
 
   const [video, setVideo] = useState("");
 
+
+
   //포스트의 데이터를 생성될때 받아옴
   useEffect(() => {
     let Datas = {};
-    db.collection("post")
-      .doc(postId)
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          Datas = doc.data();
+    if (headerToggleData) {
+      db.collection("post")
+        .doc(postId)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            Datas = doc.data();
 
-          // 썸네잉ㄹ
-          setMainthumb(Datas.main?.img || "symbol1920");
-          setbackthumb(Datas.background?.img || "symbol");
-          setResearchthumb(Datas.research?.img || "symbol");
-          setGoalthumb(Datas.goals?.img || "symbol1200");
+            // 썸네잉ㄹ
+            setMainthumb(Datas.main?.img || "symbol1920");
+            setbackthumb(Datas.background?.img || "symbol");
+            setResearchthumb(Datas.research?.img || "symbol");
+            setGoalthumb(Datas.goals?.img || "symbol1200");
 
-          setFunctionthumb(Datas?.func || "symbol");
+            setFunctionthumb(Datas?.func || "symbol");
 
-          // 텍스트
-          setMaintext(Datas.main?.works || "");
-          setOnelinetext(Datas.main?.oneline || "");
-          setBacktext(Datas.background?.content || "");
-          setRestext(Datas.research?.content || "");
-          setGoaltext(Datas.goals?.content || "");
+            // 텍스트
+            setMaintext(Datas.main?.works || "");
+            setOnelinetext(Datas.main?.oneline || "");
+            setBacktext(Datas.background?.content || "");
+            setRestext(Datas.research?.content || "");
+            setGoaltext(Datas.goals?.content || "");
 
-          setData(Datas?.data);
-          setVideo(Datas.video || "");
-          setLink(Datas.weblink || "");
-          setIsLoading(true);
-        }
-        setDummy(Datas);
-      });
-  }, []);
+            setData(Datas?.data);
+            setVideo(Datas.video || "");
+            setLink(Datas.weblink || "");
+            setIsLoading(true);
+          }
+          setDummy(Datas);
+        });
+    } else {
+      db.collection("postKR")
+        .doc(postId)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            Datas = doc.data();
+
+            // 썸네잉ㄹ
+            setMainthumb(Datas.main?.img || "symbol1920");
+            setbackthumb(Datas.background?.img || "symbol");
+            setResearchthumb(Datas.research?.img || "symbol");
+            setGoalthumb(Datas.goals?.img || "symbol1200");
+
+            setFunctionthumb(Datas?.func || "symbol");
+
+            // 텍스트
+            setMaintext(Datas.main?.works || "");
+            setOnelinetext(Datas.main?.oneline || "");
+            setBacktext(Datas.background?.content || "");
+            setRestext(Datas.research?.content || "");
+            setGoaltext(Datas.goals?.content || "");
+
+            setData(Datas?.data);
+            setVideo(Datas.video || "");
+            setLink(Datas.weblink || "");
+            setIsLoading(true);
+          }
+          setDummy(Datas);
+        });
+    }
+  }, [headerToggleData]);
 
   return (
     <div className={`${"pageWrapper"}`}>
@@ -107,7 +144,13 @@ export default function DetailPage() {
           main={maintext}
           oneline={onelinetext}
         ></MainImg>
-        <Left width={550} head={"Background"} text={backtext} src={backthumb} />
+        <Left
+          toggle={headerToggleData ? "blur" : "unblur"}
+          width={550}
+          head={"Background"}
+          text={backtext}
+          src={backthumb}
+        />
         <Right
           width={550}
           head={"Solution"}

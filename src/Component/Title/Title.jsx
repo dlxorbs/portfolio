@@ -16,7 +16,9 @@ function History(props) {
           ></div>
 
           <span className="year">{props.year}</span>
-          <span className="details"> {props.detail}</span>
+          <span className={`details ${props.spans || "unblur"}`}>
+            {props.detail}
+          </span>
         </div>
       }
     </>
@@ -142,6 +144,7 @@ export default function Title(props) {
         detail={item.detail}
         width={width}
         historyop={historyop}
+        spans={props.spans}
       />
     );
   });
@@ -162,7 +165,7 @@ export default function Title(props) {
                 : "translate(50%, -50%)",
             }}
           >
-            Web Designer
+            Frontend Developer
           </h1>
           <h1
             id="bottitle"

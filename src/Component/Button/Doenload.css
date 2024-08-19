@@ -38,6 +38,141 @@ button {
   background-color: var(--p2);
   color: var(--g0);
 }
+
+/* 토글 */
+
+* {
+  --ToggleBtn: 20px;
+  --LeftValue: 8px;
+  --ToggleWidth: 60px;
+
+  --ToggleBtn-mobile: 12px;
+  --LeftValue-mobile: 4px;
+  --ToggleWidth-mobile: 36px;
+  --ToggleHeight-mobile: 16px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: var(--ToggleWidth);
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  content: "KOR";
+  font-size: 12px;
+  height: var(--ToggleBtn);
+
+  left: var(--LeftValue);
+  bottom: 2px;
+  /* background-color: rgb(0, 0, 0); */
+  -webkit-transition: 0.4s;
+  transition: all 0.5s ease-out;
+}
+
+.slider::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  content: "";
+  font-size: 12px;
+  height: var(--ToggleBtn);
+  width: var(--ToggleBtn);
+  left: 4px;
+  bottom: 2px;
+  background-color: var(--p1);
+  -webkit-transition: 0.4s;
+  transition: all 0.5s ease-out;
+  transform: translateX(34px);
+  border-radius: 9999px;
+}
+
+.slider:before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  content: "KOR";
+  font-size: 12px;
+  height: var(--ToggleBtn);
+
+  left: var(--LeftValue);
+  bottom: 2px;
+  /* background-color: rgb(0, 0, 0); */
+  -webkit-transition: 0.4s;
+  transition: all 0.5s ease-out;
+}
+
+input:checked + .slider {
+  background-color: var(--p1);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--p1);
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+  color: #fff;
+  content: "EN";
+  font-weight: 400;
+}
+
+input:checked + .slider:after {
+  transform: translateX(0px);
+  color: #fff;
+  content: "";
+  background-color: var(--g0);
+  font-weight: 400;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 9999px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* @keyframes move {
+  0% {
+    -webkit-transform: translateX(var(--ToggleBtn));
+    -ms-transform: translateX(var(--ToggleBtn));
+    transform: translateX(var(--ToggleBtn));
+
+    width: 0px !important;
+  }
+  50% {
+  }
+  100% {
+  }
+} */
 @media screen and (max-width: 800px) {
   .down {
     width: 48px;
@@ -45,5 +180,92 @@ button {
     border-radius: 9999px;
     transition: 0.5s;
     font-size: 8px;
+  }
+
+  /* 토글 */
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: var(--ToggleWidth-mobile);
+    height: var(--ToggleHeight-mobile);
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    content: "KOR";
+    font-size: 8px;
+    height: var(--ToggleBtn-mobile);
+
+    left: var(--LeftValue-mobile);
+    bottom: 2px;
+    /* background-color: rgb(0, 0, 0); */
+    -webkit-transition: 0.4s;
+    transition: all 0.5s ease-out;
+  }
+
+  .slider::after {
+    display: flex;
+    width: 12px;
+    height: 12px;
+    left: -12px;
+  }
+
+  .slider.round {
+    border-radius: 9999px;
+  }
+
+  input:checked + .slider {
+    background-color: var(--p1);
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--p1);
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(16px);
+    color: #fff;
+    content: "EN";
+    font-weight: 400;
+  }
+
+  input:checked + .slider:after {
+    transform: translateX(16px);
+    color: #fff;
+    content: "";
+    background-color: var(--g0);
+    font-weight: 400;
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 9999px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
   }
 }

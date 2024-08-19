@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Header.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import CloseIcon from "../../Img/close.png";
 import MenuIcon from "../../Img/hamburger.png";
+import Toggle from "../Button/Toggle";
 import { useEffect } from "react";
-import Scroll from "../Scroll/Scroll";
+import { AppContext } from "../../Context/AppContext";
 
 function Nav(props) {
   const location = useLocation(); // 현재 위치 확인
@@ -28,13 +29,13 @@ function Nav(props) {
   );
 }
 
-function Header(props) {
+function Header() {
   const nav = useNavigate();
   const location = useLocation();
 
   const [isNavOpen, setIsNavOpen] = useState(false);
   console.log(location);
-  // Nav 클릭 시 스크롤 위치로 이동하는 함수
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -69,6 +70,12 @@ function Header(props) {
   };
 
   const NaviContainer = () => {
+    const { headerToggleData, setHeaderToggleData } = useContext(AppContext);
+
+    const toggleClick = (data) => {
+      setHeaderToggleData(data); // 클릭 이벤트 시 데이터 설정
+    };
+
     return (
       <div
         className={`${styles.navigation} ${isNavOpen ? styles.mobileNav : ""}`}
@@ -99,9 +106,16 @@ function Header(props) {
             }
           }}
         />
+        <Toggle
+          checked={headerToggleData} // 토글 상태를 Context에서 가져와서 설정
+          onChange={(e) => {
+            toggleClick(e.target.checked);
+          }}
+        />
       </div>
     );
   };
+
   return (
     <div className={styles.headerWrapper}>
       <div className={styles.headerContainer}>
@@ -117,7 +131,11 @@ function Header(props) {
           </div>
           <NaviContainer />
           <div className={styles.menuIcon} onClick={handleClick}>
-            {isNavOpen ? <img src={CloseIcon} /> : <img src={MenuIcon} />}
+            {isNavOpen ? (
+              <img src={CloseIcon} alt="close menu" />
+            ) : (
+              <img src={MenuIcon} alt="open menu" />
+            )}
           </div>
         </div>
       </div>

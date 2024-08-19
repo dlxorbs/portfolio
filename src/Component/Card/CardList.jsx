@@ -17,6 +17,7 @@ export default function CardList(props) {
         color={item.color || ""}
         type={item.type}
         participate={item.participate}
+        span = {props.span}
       ></Card>
     );
   });
