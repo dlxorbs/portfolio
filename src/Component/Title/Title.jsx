@@ -157,23 +157,24 @@ export default function Title(props) {
             id="toptitle"
             style={{
               opacity: `${opacity / 300}`,
-              right: titleRight
-                ? "calc(50% + 12px)"
-                : ` calc( ${positionX / 10}%)`,
+              textAlign: titleRight ? "right" : "center",
+              right: titleRight ? `auto` : `calc(${positionX / 10}%)`,
+              left: titleRight ? `0` : "auto",
+
               transform: titleRight
                 ? "translateY(-50%)"
                 : "translate(50%, -50%)",
             }}
           >
-            Frontend Developer
+            Web Designer
           </h1>
           <h1
             id="bottitle"
             style={{
+              textAlign: titleRight ? "right" : "center",
               opacity: `${opacity / 300}`,
-              right: titleRight
-                ? "calc(50% + 12px)"
-                : ` calc(100% - ${positionX / 10}%)`,
+              right: titleRight ? "auto" : ` calc(100% - ${positionX / 10}%)`,
+              left: titleRight ? `0` : "auto",
               transform: titleRight
                 ? "translateY(-50%)"
                 : "translate(50%, -50%)",

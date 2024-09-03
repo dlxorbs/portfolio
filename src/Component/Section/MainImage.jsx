@@ -4,20 +4,6 @@ import "./Section.css";
 export default function MainImg(props) {
   const [offset, setOffset] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.innerWidth >= 800) {
-        setOffset(window.pageYOffset);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <div
       className="mainImage"

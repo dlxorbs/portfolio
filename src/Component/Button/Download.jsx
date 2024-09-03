@@ -1,11 +1,19 @@
 import React from "react";
 import "./Doenload.css";
-const DownloadButton = () => {
-  const handleDownload = () => {
+const DownloadButton = (props) => {
+  const handleDownload = (lang) => {
     // PDF 파일 URL
-    const pdfUrl =
-      "https://firebasestorage.googleapis.com/v0/b/portfolio-f47bc.appspot.com/o/Portfolio_TaeGyun_Lee.pdf?alt=media&token=5e807f1d-74ae-4374-a08c-7c5b5ce326dc";
+    let pdfUrl;
+    console.log(props.lang);
+    if (props.lang) {
+      pdfUrl =
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-f47bc.appspot.com/o/Portfolio_Taegyun_EN.pdf?alt=media&token=36b08d6c-f4ce-4901-9760-7a931e297562";
+    } else {
+      pdfUrl =
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-f47bc.appspot.com/o/Portfolio_Taegyun_KR.pdf?alt=media&token=baeec26d-cec0-4c1f-998a-1175065edfb5";
+    }
 
+    // console.log(pdfUrl);
     window.open(pdfUrl, "_blank");
   };
 

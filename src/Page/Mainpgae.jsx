@@ -63,7 +63,7 @@ export default function Mainpage() {
               Datas.push(doc.data());
             });
             setData(Datas);
-            console.log(Datas);
+            // console.log(Datas);
           });
       } else {
         db.collection("postKR")
@@ -73,7 +73,7 @@ export default function Mainpage() {
               Datas.push(doc.data());
             });
             setData(Datas);
-            console.log(Datas);
+            // console.log(Datas);
           });
       }
     },
@@ -134,7 +134,7 @@ export default function Mainpage() {
           }
         ></Section>
 
-        <DownloadButton />
+        <DownloadButton lang={headerToggleData} />
       </div>
     </div>
   );

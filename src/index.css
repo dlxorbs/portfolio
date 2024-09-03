@@ -103,7 +103,7 @@ h4 {
     --h2: 36px;
     --h3: 28px;
     --h4: 24px;
-
+    --topmin: 330px;
     --botmin: 330px;
     --skillabout: 16px;
   }
@@ -116,7 +116,7 @@ h4 {
     --h3: 24px;
     --h4: 20px;
     --topmin: 350px;
-    --botmin: 276px;
+    --botmin: 350px;
     --skillabout: 14px;
   }
 }

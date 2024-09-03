@@ -67,8 +67,6 @@ export default function DetailPage() {
 
   const [video, setVideo] = useState("");
 
-
-
   //포스트의 데이터를 생성될때 받아옴
   useEffect(() => {
     let Datas = {};
@@ -150,12 +148,14 @@ export default function DetailPage() {
           head={"Background"}
           text={backtext}
           src={backthumb}
+          className={"Background"}
         />
         <Right
           width={550}
           head={"Solution"}
           text={restext}
           src={researchthumb}
+          className={"research"}
         />
         <Left
           width={550}
@@ -163,6 +163,7 @@ export default function DetailPage() {
           head={"Architecture"}
           text={goaltext}
           src={goalthumb}
+          className={"Architecture"}
         />
         <Center
           openModal={openModal}
@@ -170,6 +171,7 @@ export default function DetailPage() {
           head={"Details"}
           data={functionthumb}
           link={link}
+          className={"Details"}
         />
 
         {selectedCard && isLoading && (

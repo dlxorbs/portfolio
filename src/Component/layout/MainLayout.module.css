@@ -21,5 +21,6 @@
   .mainlayout {
     width: var(--webmobiled);
     margin: 0 auto 48px;
+    overflow-x: hidden;
   }
 }

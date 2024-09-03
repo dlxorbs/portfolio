@@ -10,21 +10,23 @@
 }
 
 /*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
-.LeftContianer {
+.LeftContainer {
   position: relative;
   width: 100%;
   display: flex;
   gap: 60px;
   justify-content: space-between;
   align-items: center;
+  transition: 500ms;
 }
 
-.RightContianer {
+.RightContainer {
   position: relative;
   width: 100%;
   display: flex;
   gap: 60px;
   justify-content: space-between;
+  transition: 500ms;
 }
 
 .CenterContainer {
@@ -43,6 +45,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 16px;
+  transition: 500ms;
 }
 
 .image {
@@ -118,7 +121,7 @@
   opacity: 0;
 }
 
-.LeftContianer:hover .over,
+.LeftContainer:hover .over,
 .imgcon:hover .over {
   width: 100%;
   height: 100%;
@@ -126,7 +129,7 @@
   transition: 0.4s;
 }
 
-.LeftContianer:hover .over > span,
+.LeftContainer:hover .over > span,
 .imgcon:hover .over > span {
   opacity: 1;
   transition: 0.5s;
@@ -193,7 +196,7 @@ textarea:focus {
 .maintext > span {
   font-weight: 400;
   font-size: 28px;
-} 
+}
 
 .maintextcon {
   width: var(--web1200);
@@ -215,7 +218,8 @@ iframe {
 .mainImage {
   position: relative;
   width: 100vw;
-  height: 440px; /* 패럴렉스 효과를 주고자 하는 요소의 높이에 맞게 조정하세요 */
+  height: 33vw;
+  min-height: 33vw;
   overflow: hidden;
   background-image: var(--img);
   background-size: cover;
@@ -225,11 +229,11 @@ iframe {
 
 @media (max-width: 1440px) {
   /*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
-  .LeftContianer {
+  .LeftContainer {
     gap: 40px;
   }
 
-  .RightContianer {
+  .RightContainer {
     gap: 40px;
   }
 
@@ -254,12 +258,12 @@ iframe {
 
 @media (max-width: 1024px) {
   /*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
-  .LeftContianer {
+  .LeftContainer {
     flex-direction: column;
     gap: 12px;
   }
 
-  .RightContianer {
+  .RightContainer {
     flex-direction: column-reverse;
     gap: 12px;
   }
@@ -287,12 +291,12 @@ iframe {
 
 @media (max-width: 800px) {
   /*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
-  .LeftContianer {
+  .LeftContainer {
     flex-direction: column;
     gap: 12px;
   }
 
-  .RightContianer {
+  .RightContainer {
     flex-direction: column-reverse;
     gap: 12px;
   }
