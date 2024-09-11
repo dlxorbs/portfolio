@@ -3,16 +3,10 @@ import "./Page.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { db } from "../firebase.js";
 import $ from "jquery";
-import Left from "../Component/Section/Left";
-import Main from "../Component/Section/Main";
-import Right from "../Component/Section/Right";
-import Center from "../Component/Section/Center";
-import MainImg from "../Component/Section/MainImage.jsx";
-import Modal from "../Component/Modal/ModalPage.jsx";
 import Loading from "../Component/Load/Loading.jsx";
 import { AppContext } from "../Context/AppContext";
 
-export default function DetailPage() {
+export default function ProjectPage() {
   const nav = useNavigate();
   const postId = useParams().id;
   const textarea = useRef();
@@ -137,13 +131,13 @@ export default function DetailPage() {
   return (
     <div className={`${"pageWrapper"}`}>
       <div className=" detail pageContainer">
-        {/* <MainImg
+        <MainImg
           data={data}
           src={mainthumb}
           main={maintext}
           oneline={onelinetext}
-        ></MainImg> */}
-        <Main
+        ></MainImg>
+        <Left
           toggle={headerToggleData ? "blur" : "unblur"}
           width={550}
           head={"Overview"}

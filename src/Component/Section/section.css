@@ -9,7 +9,20 @@
   transition: 500ms;
 }
 
-/*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
+/*  섹션*/
+.MainContainer {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+
+  justify-content: space-between;
+  align-items: center;
+  transition: 500ms;
+}
+
 .LeftContainer {
   position: relative;
   width: 100%;
@@ -38,6 +51,10 @@
   flex-direction: column;
 }
 
+.MainContainer > .textWrapper {
+  width: calc(100% - 180px);
+}
+
 .textWrapper {
   width: 550px;
   height: auto;
@@ -47,7 +64,18 @@
   gap: 16px;
   transition: 500ms;
 }
+.overview {
+  align-items: center;
+}
 
+.overview > p {
+  text-align: center;
+  word-break: keep-all !important;
+}
+.MainContainer > .imgContainer > .image {
+  width: auto;
+  max-width: 1000px !important;
+}
 .image {
   width: auto;
   max-width: 520px;
@@ -56,20 +84,29 @@
 .CenterContainer > .textWrapper {
   height: fit-content;
 }
+
 .center {
-  width: 100% !important;
+  width: 600px !important;
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
 }
 
-.center > span {
+.overview > span {
   color: var(--g0);
   width: fit-content;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   cursor: pointer;
+  padding: 12px 18px;
+  border: solid 1px #ffffff;
+  border-radius: 9999px;
+  margin-top: 12px;
+  transition: 0.6s;
 }
 
+.overview > span:hover {
+  background-color: #ffffff21;
+  transition: 0.6s;
+}
 /* 이미지 여러장 보여주기 */
 .imgContainer {
   width: auto;
@@ -135,15 +172,6 @@
   transition: 0.5s;
 }
 
-.function {
-  width: 373px;
-}
-
-.functionImg {
-  width: 752px;
-  height: 500px;
-}
-
 .smimg {
   width: 100vw;
   height: 33vw;
@@ -156,11 +184,7 @@
   position: absolute;
   z-index: 1;
 }
-/* .imagecon {
-  position: relative;
-  width: 100vw;
-  height: 33vw;
-} */
+
 .imagecon {
   position: absolute;
   width: 100%;
@@ -178,53 +202,10 @@
   border: none;
   color: var(--g0);
   background-color: transparent;
-  font-size: 18px;
+  font-size: 16px;
   padding: 0;
   line-height: 160%;
   margin: 0;
-}
-
-textarea:focus {
-  outline: none;
-}
-
-.maintext {
-  color: var(--g0);
-  z-index: 3;
-}
-
-.maintext > span {
-  font-weight: 400;
-  font-size: 28px;
-}
-
-.maintextcon {
-  width: var(--web1200);
-  height: auto;
-  margin: 0 auto;
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  bottom: 56px;
-  color: var(--g1);
-  z-index: 3;
-}
-
-iframe {
-  width: 100%;
-  height: 720px;
-}
-.mainImage {
-  position: relative;
-  width: 100vw;
-  height: 33vw;
-  min-height: 33vw;
-  overflow: hidden;
-  background-image: var(--img);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 @media (max-width: 1440px) {
