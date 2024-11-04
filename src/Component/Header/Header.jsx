@@ -106,12 +106,12 @@ function Header() {
             }
           }}
         />
-        <Toggle
+        {/* <Toggle
           checked={headerToggleData} // 토글 상태를 Context에서 가져와서 설정
           onChange={(e) => {
             toggleClick(e.target.checked);
           }}
-        />
+        /> */}
       </div>
     );
   };
