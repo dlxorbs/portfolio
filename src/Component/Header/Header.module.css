@@ -4,13 +4,15 @@
   justify-content: center;
   font-weight: 700;
   color: var(--p1);
-  background-color: var(--g1);
+  background-color: var(--g1opacity);
   animation: lights 8s infinite;
   position: fixed;
   top: 0;
   left: 0;
   height: 60px;
   z-index: 9999;
+
+  backdrop-filter: grayscale(100%) blur(7px);
 }
 .headerContainer {
   width: var(--web1200);

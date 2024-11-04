@@ -4,7 +4,7 @@ import Card from "./Card";
 
 export default function CardList(props) {
   const list = props.data.map(function (item) {
-    // console.log(item.id);
+    console.log(item.id);
     return (
       <Card
         id={item.id}
@@ -17,7 +17,7 @@ export default function CardList(props) {
         color={item.color || ""}
         type={item.type}
         participate={item.participate}
-        span={props.span}
+        span = {props.span}
       ></Card>
     );
   });

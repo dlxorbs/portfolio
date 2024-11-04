@@ -103,14 +103,7 @@ export default function Center(props) {
   });
 
   return (
-    <div
-      className={`CenterContainer ${props.className}`}
-      style={{
-        opacity: opacity,
-        transform: opacity ? "translateY(0px)" : "translateY(24px)",
-        transition: "500ms",
-      }}
-    >
+    <div className="CenterContainer">
       <div className="textWrapper center">
         <h4>{props.head || "Function"}</h4>
       </div>

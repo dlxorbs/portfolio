@@ -9,6 +9,54 @@
   transition: 500ms;
 }
 
+/*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
+.LeftContianer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.RightContianer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+}
+
+.CenterContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.MainContainer > .textWrapper > p {
+  width: 100%;
+}
+
+.textWrapper {
+  width: 550px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+.overview {
+  align-items: center;
+}
+
+.overview > p {
+  text-align: center;
+  word-break: keep-all !important;
+}
+
 /*  섹션*/
 .MainContainer {
   position: relative;
@@ -23,55 +71,6 @@
   transition: 500ms;
 }
 
-.LeftContainer {
-  position: relative;
-  width: 100%;
-  display: flex;
-  gap: 60px;
-  justify-content: space-between;
-  align-items: center;
-  transition: 500ms;
-}
-
-.RightContainer {
-  position: relative;
-  width: 100%;
-  display: flex;
-  gap: 60px;
-  justify-content: space-between;
-  transition: 500ms;
-}
-
-.CenterContainer {
-  position: relative;
-  width: 100%;
-  display: flex;
-  gap: 60px;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.MainContainer > .textWrapper {
-  width: calc(100% - 180px);
-}
-
-.textWrapper {
-  width: 550px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 16px;
-  transition: 500ms;
-}
-.overview {
-  align-items: center;
-}
-
-.overview > p {
-  text-align: center;
-  word-break: keep-all !important;
-}
 .MainContainer > .imgContainer > .image {
   width: auto;
   max-width: 1000px !important;
@@ -158,7 +157,7 @@
   opacity: 0;
 }
 
-.LeftContainer:hover .over,
+.LeftContianer:hover .over,
 .imgcon:hover .over {
   width: 100%;
   height: 100%;
@@ -166,7 +165,7 @@
   transition: 0.4s;
 }
 
-.LeftContainer:hover .over > span,
+.LeftContianer:hover .over > span,
 .imgcon:hover .over > span {
   opacity: 1;
   transition: 0.5s;
@@ -208,13 +207,21 @@
   margin: 0;
 }
 
+.MainContainer > .textWrapper {
+  width: calc(100%);
+}
+
 @media (max-width: 1440px) {
   /*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
-  .LeftContainer {
+  .LeftContianer {
     gap: 40px;
   }
 
-  .RightContainer {
+  .MainContainer > .textWrapper {
+    width: calc(100% - 20px);
+  }
+
+  .RightContianer {
     gap: 40px;
   }
 
@@ -239,12 +246,12 @@
 
 @media (max-width: 1024px) {
   /*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
-  .LeftContainer {
+  .LeftContianer {
     flex-direction: column;
     gap: 12px;
   }
 
-  .RightContainer {
+  .RightContianer {
     flex-direction: column-reverse;
     gap: 12px;
   }
@@ -272,12 +279,12 @@
 
 @media (max-width: 800px) {
   /*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
-  .LeftContainer {
+  .LeftContianer {
     flex-direction: column;
     gap: 12px;
   }
 
-  .RightContainer {
+  .RightContianer {
     flex-direction: column-reverse;
     gap: 12px;
   }
@@ -306,6 +313,10 @@
     width: 100%;
   }
 
+  .MainContainer > .imgContainer > .image {
+    max-width: 375px !important;
+  }
+
   .center > span {
     font-size: 10px;
   }
@@ -316,5 +327,9 @@
     height: 250px; /* 패럴렉스 효과를 주고자 하는 요소의 높이에 맞게 조정하세요 */
     overflow: hidden;
     background-image: var(--img);
+  }
+
+  .MainContainer > .textWrapper {
+    width: calc(100% - 20px);
   }
 }
