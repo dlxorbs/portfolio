@@ -4,7 +4,7 @@
   justify-content: center;
   font-weight: 700;
   color: var(--p1);
-  background-color: var(--g1opacity);
+  background-color: var(--g1);
   animation: lights 8s infinite;
   position: fixed;
   top: 0;
@@ -12,8 +12,9 @@
   height: 60px;
   z-index: 9999;
 
-  backdrop-filter: grayscale(100%) blur(7px);
+  /* backdrop-filter: grayscale(100%) blur(0px); */
 }
+
 .headerContainer {
   width: var(--web1200);
 
@@ -57,6 +58,7 @@
   display: flex;
   gap: 40px;
 }
+
 .nav {
   text-decoration: none;
   cursor: pointer;
@@ -73,6 +75,7 @@
 .activeNav {
   color: var(--P1);
 }
+
 .menuIcon {
   display: none;
 }
@@ -109,14 +112,17 @@
     align-items: center;
     gap: 12px;
   }
+
   .nav {
     display: flex;
     align-items: center;
   }
-  .nav > span {
+
+  .nav>span {
     font-size: 10px;
     font-weight: 200;
   }
+
   .logo {
     font-size: 12px;
   }
@@ -126,9 +132,11 @@
   0% {
     /* box-shadow: 0px 0px 8px 0px rgba(100, 100, 155, 0.15); */
   }
+
   66% {
     /* box-shadow: 0px 4px 16px 0px rgba(255, 255, 255, 0.1); */
   }
+
   100% {
     /* box-shadow: 0px 0px 8px 0px rgba(200, 200, 200, 0.15); */
   }

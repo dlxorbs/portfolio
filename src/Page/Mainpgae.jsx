@@ -134,7 +134,7 @@ export default function Mainpage() {
           }
         ></Section>
 
-        <DownloadButton />
+        <DownloadButton lang={headerToggleData} />
       </div>
     </div>
   );

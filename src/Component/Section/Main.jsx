@@ -110,12 +110,14 @@ export default function Main(props) {
 
         <p className={props.toggle}>{props.text}</p>
 
-        <span
-          onClick={link1open}
-          style={{ display: `${props.weblink === "" ? "none" : ""}` }}
-        >
-          {props.link === "" ? "" : "Visit Site"}
-        </span>
+        {props.link && (
+          <span
+            onClick={link1open}
+            style={{ display: `${props.weblink === "" ? "none" : ""}` }}
+          >
+            {props.link === "" ? "" : "Visit Site"}
+          </span>
+        )}
       </div>
     </div>
   );

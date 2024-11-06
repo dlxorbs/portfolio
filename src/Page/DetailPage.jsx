@@ -68,8 +68,6 @@ export default function DetailPage() {
 
   const [video, setVideo] = useState("");
 
-
-
   //포스트의 데이터를 생성될때 받아옴
   useEffect(() => {
     let Datas = {};
@@ -151,6 +149,7 @@ export default function DetailPage() {
           head={"Overview"}
           text={backtext}
           src={backthumb}
+          link={link}
         />
         <Right
           width={550}
